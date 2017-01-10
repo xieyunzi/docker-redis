@@ -1,0 +1,20 @@
+# https://hub.docker.com/_/mongo/
+version: '2'
+services:
+
+  mongo:
+    image: mongo:3.4
+    ports:
+      - ${MONGO_PORT}
+    volumes:
+      - ./data:/data/db
+
+  mongo-express:
+    image: mongo-express:0.32
+    ports:
+      - ${MONGO_EXPRESS_PORT}
+    environment:
+      ME_CONFIG_BASICAUTH_USERNAME: "user"
+      ME_CONFIG_BASICAUTH_PASSWORD: "password"
+    links:
+      - mongo
