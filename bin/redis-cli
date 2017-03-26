@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo 'redis-cli -h [host[:port]]'
+docker-compose run --rm redis /bin/sh
